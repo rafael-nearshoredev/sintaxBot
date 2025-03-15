@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-from app.services.syntax_analyzer import analizar_frase
+from app.services.syntax_analyzer import analyze_sentence
 
 router = APIRouter()
 
@@ -25,5 +25,5 @@ def analyze(input_data: SentenceInput):
     **Response:**
     - JSON containing the sentence, language, and analysis result.
     """
-    result = analizar_frase(input_data.sentence)  # Language handling needs implementation
+    result = analyze_sentence(input_data.sentence, input_data.language)  # Language handling needs implementation
     return SentenceOutput(sentence=input_data.sentence, language=input_data.language, result=result)
