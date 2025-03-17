@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-from app.services.syntax_analyzer import analyze_sentence
+from app.services.analyzers.syntax import analyze_sentence
 
 router = APIRouter()
 
